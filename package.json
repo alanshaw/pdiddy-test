@@ -1,0 +1,41 @@
+{
+  "name": "pddp-test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "left.js",
+  "dependencies": {
+    "pdiddy-client": "^0.0.0",
+    "peerjs": "^0.3.14",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
+  },
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "envify": "^3.4.0",
+    "npm-run-all": "^1.2.11",
+    "reactify": "^1.1.1",
+    "watchify": "^3.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browserify": "npm-run-all browserify:*",
+    "browserify:index": "browserify index.js -o index.bundle.js",
+    "browserify:proxy": "browserify proxy.js -o proxy.bundle.js",
+    "watchify": "npm-run-all --parallel watchify:*",
+    "watchify:index": "watchify index.js -v -o index.bundle.js",
+    "watchify:proxy": "watchify proxy.js -v -o proxy.bundle.js"
+  },
+  "author": "Alan Shaw",
+  "license": "ISC",
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ],
+      "envify"
+    ]
+  }
+}
